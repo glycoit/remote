@@ -1,11 +1,11 @@
 import React from "react";
-import PharmaDashboard from "./PharmaDashboard";  // Import your PharmaDashboard component
+import pharmadashboard from "./pharmadashboard";  // Import your pharmadashboard component
 
 function App() {
   return (
     <div className="App">
-      {/* Use the PharmaDashboard component */}
-      <PharmaDashboard />  
+      {/* Use the pharmadashboard component */}
+      <pharmadashboard />  
     </div>
   );
 }
