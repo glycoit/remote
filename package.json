@@ -1,13 +1,15 @@
-{
+{ 
   "name": "pharma-dashboard-new",
   "version": "0.1.0",
   "private": true,
- "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject"
-},
+  "homepage": "https://glycoit.github.io/pharma-dashboard-new",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "vercel --prod"
+  },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
