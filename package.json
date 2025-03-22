@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-{ 
+{
   "name": "pharma-dashboard-new",
   "version": "0.1.0",
   "private": true,
@@ -11,13 +10,6 @@
     "eject": "react-scripts eject",
     "deploy": "vercel --prod"
   },
-=======
-"homepage": "https://glycoit.github.io/remote"
-{
-  "name": "react-app",
-  "version": "0.1.0",
-  "private": true,
->>>>>>> 7b1b5af (Initial commit)
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -29,12 +21,6 @@
     "react-scripts": "5.0.1",
     "recharts": "^2.15.1",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
