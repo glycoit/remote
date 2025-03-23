@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Package, TrendingUp, Bell, Warehouse, Truck, AlertTriangle, ShieldCheck, Globe, CheckCircle, FileText } from "lucide-react";
+import { parse } from "json2csv"; // Import json2csv for generating CSV
 
 const clients = ["MediCare Ltd.", "PharmaTech Inc.", "BioGen Solutions", "HealWell Pharma", "NovaMed Group"];
 
@@ -16,8 +17,14 @@ export default function PharmaDashboard() {
   const [selectedClient, setSelectedClient] = useState(clients[0]);
   const [erpValue, setErpValue] = useState("ERP Dynamics: Stock - 500,000 units");
 
-  const generateReport = () => {
-    alert(`Generating report for ${selectedClient}`);
+ // Function to generate and download CSV
+  const generateCSV = () => {
+    const csv = parse(sampleData);  // Convert sampleData to CSV
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "report.csv"; // Name of the file to download
+    link.click(); // Trigger the download
   };
 
   return (
@@ -56,8 +63,12 @@ export default function PharmaDashboard() {
       {/* Action buttons */}
       <div><div className="p-4 flex flex-col items-center"><CheckCircle className="text-green-500 mb-2" size={32} /><h3 className="text-lg font-bold">Reorder Recommendations</h3><p className="text-gray-500 text-center">AI suggests ordering 10,000 units of Medication X.</p><button className="mt-4">Approve Order</button></div></div>
 
-      {/* Report Generation */}
-      <div className="col-span-3"><div className="p-4 flex flex-col items-center"><FileText className="text-blue-500 mb-2" size={32} /><h3 className="text-lg font-bold">Generate Report</h3><p className="text-gray-500 text-center">Click below to generate a report for the selected client.</p><button className="mt-4" onClick={generateReport}>Generate Report</button></div></div>
+      {/* Generate Report Button */}
+      <div className="col-span-3">
+        <div className="flex justify-center">
+          <button onClick={generateCSV}>Generate Report</button>
+        </div>
+      </div>
     </div>
   );
 }
